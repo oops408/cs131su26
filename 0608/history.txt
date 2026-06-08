@@ -1,0 +1,146 @@
+    1  :q
+    2  \q
+    3  /q
+    4  quit
+    5  exit
+    6  mkdir cs131
+    7  ls
+    8  echo "cs131" > cs131/README.md
+    9  cd cs131
+   10  git init
+   11  git add README.md
+   12  git commit -m "first commit"
+   13  git remote add origin https://github.com/oops408/cs131su26.git
+   14  git branch -M main
+   15  git push -u origin main
+   16  git push
+   17  git push --set-upstream origin main
+   18  git status
+   19  git add .
+   20  git commit -m "first commit"
+   21  git config --global user.email "suparn.posina@sjsu.edu"
+   22  git config --global user.name "Suparn Posina"
+   23  git commit -m "first commit"
+   24  git remote add origin https://github.com/oops408/cs131su26.git
+   25  git branch -M main
+   26  git push -u origin main
+   27  git remote -v
+   28  git remote set-url origin https://github.com/oops408/cs131su26.git
+   29  git push -u origin main
+   30  git credential reject <<EOF
+   31  protocol=https
+   32  host=github.com
+   33  EOF
+   34  git push -u origin main
+   35  ssh -T git@github.com
+   36  ls -la ~/.ssh
+   37  cat ~/.ssh/id_ed25519.pub
+   38  ssh-keygen -t ed25519 -C "suparn.posina@sjsu.edu"
+   39  cat ~/.ssh/id_ed25519.pub
+   40  ssh -T git@github.com
+   41  git remote set-url origin git@github.com:oops408/cs131su26.git
+   42  git push -u origin main
+   43  ls
+   44  git status
+   45  echo "add one line" >> README.md
+   46  git status
+   47  git add README.md
+   48  git status
+   49  git commit -m "update README"
+   50  git status
+   51  git push
+   52  git status
+   53  pwd
+   54  ls
+   55  cd
+   56  ls
+   57  cd snap
+   58  ls
+   59  cd
+   60  cd Desktop
+   61  ls
+   62  cd
+   63  cd cs131
+   64  ls
+   65  cat /less
+   66  cat README.md
+   67  clear
+   68  ls /
+   69  clear
+   70  cd
+   71  ls -alhrt
+   72  clear
+   73  ls
+   74  cd cs131
+   75  ls
+   76  mkdir 0608
+   77  cd 0608
+   78  touch test.txt
+   79  ls
+   80  vim test.txt
+   81  clear
+   82  cd cs131/0608
+   83  vim test.txt
+   84  clear
+   85  vim aa.txt
+   86  vim a.txt
+   87  head -4 a.txt
+   88  ls
+   89  vim b.txt
+   90  cat b.txt
+   91  sort b.txt
+   92  wc b.txt
+   93  grep "ba" b.txt
+   94  tail -2 a.txt
+   95  sort b.txt > sortedb.txt
+   96  cat sortedb.txt
+   97  clear
+   98  ls
+   99  vim bb.txt
+  100  ls
+  101  ls > lsresults.txt
+  102  cat lsresults.txt
+  103  copy b.txt copied
+  104  clear
+  105  vim copied
+  106  ls
+  107  ls > lsresults.txt
+  108  cat lsresults.txt
+  109  cat sortedb.txt
+  110  ls >sortedb.txt
+  111  cat sortedb.txt
+  112  sort b.txt >> sortedb.txt
+  113  cat sortedb.txt
+  114  cat so
+  115  cat sortedb.txt 
+  116  rm copied/
+  117  mkdir copied
+  118  rm copied
+  119  mkdir copied
+  120  ls
+  121  rm copied/
+  122  rm copied/ 2> log.txt
+  123  ls
+  124  cat log.txt
+  125  ls copied/
+  126  copy
+  127  copy aa.txt > copied/aa.txt
+  128  clear
+  129  cat < sortedb.txt
+  130  rm copied/ 2> /dev/null
+  131  cat /dev/null
+  132  man uniq
+  133  uniq b
+  134  sort b.txt
+  135  sort b.txt | uniq
+  136  uniq b.txt
+  137  sort b.txt | uniq
+  138  sort b.txt | uniq > norepeatb.txt
+  139  cat norepeatb.txt 
+  140  sort b.txt | uniq } wc
+  141  sort b.txt | uniq | wc > countb.txt
+  142  cat countb.txt
+  143  sort history | grep "uniq" > uniqcmds.txt
+  144  history
+  145  history | grep "uniq"
+  146  history > history.txt
