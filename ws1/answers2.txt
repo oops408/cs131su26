@@ -1,0 +1,23 @@
+BUS=/data/yelp/yelp_academic_dataset_business.json
+REV=/data/yelp/yelp_academic_dataset_review.json
+B1: grep '"city":"Santa Barbara"' "$BUS"
+B2: grep -c '"state":"CA"' "$BUS"
+B3: grep -i 'worth' "$REV"
+B4: grep -Ei '"name":"[^"]*(Coffee|Café|Cafe)|"categories":"[^"]*(Coffee|Café|Cafe)' "$BUS"
+B5: grep -E '"stars":[[:space:]]*(4\.5|5\.0)' "$BUS"
+B6: grep -E '"stars":[[:space:]]*5(\.0)?,' "$REV"
+B7: grep -E '[[:alnum:]_]+@[[:alnum:]_.]+\.[[:alpha:]]{2,}' "$REV"
+B8: grep -E '[0-9]{3}-[0-9]{3}-[0-9]{4}' "$REV"
+B9: grep -E '"name":"P' "$BUS"
+B10: grep -ci 'pizza' "$REV"
+B11: grep -ni 'service' "$REV"
+B12: grep -v 'Restaurants' "$BUS"
+B13: grep '"state":"CA"' "$BUS" \
+  | grep -oE '"review_count":[0-9]+' \
+  | grep -oE '[0-9]+' \
+  | sort -nr | head -3
+Explanation: grep first filters for CA businesses, then grep -oE extracts the review count field, then we extract just the numbers, and sort -nr to sort the numbers in descending order. Then we do head -3 to show top 3 only
+B14: grep '"city":"Santa Barbara"' "$BUS" \
+  | grep -oE '"name":"[^"]*"' \
+  | cut -d'"' -f4 \
+  | sort
