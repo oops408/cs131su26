@@ -1,0 +1,26 @@
+A1: ls -l > listing.txt; date >> listing.txt
+A2: ls /nonexistent_dir 2> errors.txt; standard error is file descriptor number 2.
+A3: ls /nonexist /etc 1> output.txt 2>errors.txt
+A4: ls /nonexistent_dir /etc &> combined.txt
+A5: ls /nonexistent_dir /etc 2>/dev/null; I see the /etc output only because the stderr is redirected to /dev/null which is a special discard file acting like a "black hole" which instantly throws away any data written to it.
+A6: sort fruits.txt | uniq
+A7: sort fruits.txt | uniq -c | sort -nr
+A8: grep ERROR server.log | wc -l
+A9: grep ERROR server.log > errors_only.txt
+A10: grep -oE '^[A-Z]+' server.log | sort | uniq -c | sort -nr
+A11: grep -o state:[A-Z][A-Z] /data/yelp/yelp_academic_dataset_business.json | sort | uniq -c | sort -nr | head -5
+B1: uid=1037(ishigaki-cs4) gid=1037(ishigaki-cs4) groups=1037(ishigaki-cs4),44(video),988(docker),993(render). uid identifies the unique user account, while the gid identifies the main group account.
+B2: The fruits.txt permission string is -rw-rw-r--. Owner has read/write (rw), group has read/write (rw), others have read only (r).
+B3: The umask is 0002. New files start from 666 permissions (read/write access for all), and umask removes the write bit from others which results in 664 or -rw-rw-r--. touch newfile.txt and ls -l newfile.txt.
+B4: chmod 000 secret.txt; cat secret.txt; shows Permission denied; chmod u+rw secret.txt
+B5: chmod 640 fruits.txt; ls -l fruits.txt; shows -rw-r-----. The octal value 640 means owner has rw-, the group has r--, and others have ---.
+B6: find . -type f -user "$USER" -perm -u=w
+C1: bash long.sh > log.txt &; PID is 834222; tail log.txt; [10:26:38] tick [10:26:40] tick [10:26:42] tick - output is accumulating.
+C2: jobs shows the job number, the job status, and the command.: [1]+  Running                 bash long.sh > log.txt &
+C3: After fg and CTRL-Z, jobs showed the state Stopped.
+C4: bg %1; jobs shows the job as Running.
+C5: kill %1; jobs confirmed it was Terminated. kill sends SIGTERM (termination signal for program) by default when no signal is specified.
+C6: bash long.sh > log.txt &; disown %1; jobs showed nothing; ps -p 835124 confirmed the process was still running    PID TTY          TIME CMD
+
+ 835124 pts/29   00:00:00 bash
+C7: The disown  command removes the job from the shell job table, so the shell does not send it a kill signal when the terminal closes, while a regular or background job is still attached to the shell and so would be killed when the terminal closes.
