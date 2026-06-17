@@ -1,0 +1,39 @@
+W0: cd ~/cs131
+
+git pull
+
+mkdir -p ws2
+
+cd ws2
+
+echo "# CS131 ws2" > notes.md
+
+touch answers.txt
+
+git add notes.md
+
+git commit -m "ws2: initial notes"
+Q1: echo "task: practice git" >> notes.md
+
+git add notes.md
+
+git commit -m "ws2: add task line"
+Q2: git log --oneline -3
+Q3: Bad commit short hash = 153416c
+Q4: git revert 153416c; grep WRONG notes.md
+Q5: head -c 150M /dev/zero > largefile.bin; git add largefile.bin; git commit -m "ws2: oops added big file"; git push; git rm --cached largefile.bin; echo "largefile.bin" >> .gitignore; git add .gitignore; git commit --amend; rm largefile.bin; git push
+Q6: git switch -c feature-summary
+Q7: printf "# WS2 Summary\nI am practicing using git with \n branches, merge conflicts, recovery, and fetching.\n" > summary.md; git add summary.md; git commit -m "ws2: add summary"
+Q8: git diff --name-only main..feature-summary; git diff main..feature-summary
+Q9: git switch main; git merge feature-summary; ls summary.md
+Q10: git branch -d feature-summary
+Q11: git merge conflict-branch; Auto-merging ws2/summary.md
+
+CONFLICT (content): Merge conflict in ws2/summary.md
+
+Automatic merge failed; fix conflicts and then commit the result.
+Q12: git diff --name-only --diff-filter=U
+Q13: nano summary.md; remove conflict markers and keep both updates
+Q14: git add summary.md; git commit; git log --oneline -5
+Q15: git fetch origin; git log HEAD..origin/main --oneline
+Q16: git fetch downloads the remote changes without merging, while git pull downloads remote changes and also merges them into the current branch.
