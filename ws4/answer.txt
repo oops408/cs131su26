@@ -1,0 +1,47 @@
+T1:
+https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L244
+
+extract ()
+
+The extract function is used to extract several different types of compressed archive files. It uses a for loop that first goes through every archive file name the user passes in as an argument. In the loop, there is an if statement to check if the current argument is a real file, using -f $archive. If it is a valid file, a case statement is used to check the file extension and run the correct command to extract. For example, .zip files use unzip $archive, .tar files use tar xvf $archive, and .gz files use gunzip $archive. If the extension does not match any known file type, then the default case prints that it does not know how to extract the file. If the argument is not a real file, the else branch prints that it is not a valid file.
+
+https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L329
+
+up ()
+
+The up function is used here to move up a chosen number of parent directories in a single command. It creates a local variable named d, and sets a limit equal to the first argument given by the user. A for loop is then used to iterate from i = 1 up to the limit value, and each time the loop runs, it adds /.. to d, which builds a relative path upward. After the loop, sed is used to remove the first slash from the path, making a valid relative path like “../..”, instead of “/../..”. Then, an if statement checks whether d is empty. If empty, the function sets d to “..”, which ensures that the function moves up one directory by default. Then, cd $d is called, which moves the specified number of directories upward.
+
+T2:
+https://github.com/oops408/cs131su26/blob/260d16c3ca29322a99aed1962cbd32d8f63272c8/ws4/.bashrc#L3-L7
+
+alias ll='ls -alFh'
+This is useful to me since it gives an alias for a detailed directory list with a simple command. The command uses -a to show hidden files, -l to show long-format details such as permissions and file sizes, -F to mark file types, and -h to show human-readable file sizes.
+alias croot='cd ~/cs131'
+alias ws4='cd ~/cs131/ws4'
+These are both useful navigation commands to easily get back to the root cs131 folder and the worksheet 4 folder. 
+alias gs='git status'
+Since we use git status often to check if files have been modified or properly committed, this alias makes that check more efficient.
+alias gl='git log --oneline --graph --decorate -5'
+This command is useful to me as it displays the last 5 Git commits in a visual way, which allows me to quickly check Git history and see what I had committed earlier.
+
+https://github.com/oops408/cs131su26/blob/260d16c3ca29322a99aed1962cbd32d8f63272c8/ws4/.bashrc#L9
+
+mkcd ()
+This is a useful shell function that creates a directory and enters the directory at the same time. An if statement is used here to check whether the user forgot to give a directory name, and if a directory name is provided, the directory is both created and moved to, which is simpler than needing to write two commands for it.
+
+
+https://github.com/oops408/cs131su26/blob/260d16c3ca29322a99aed1962cbd32d8f63272c8/ws4/.bashrc#L18
+
+cfind ()
+This function searches inside the cs131 folder for any word or pattern, and it is useful to quickly search inside a file or folder without needing to know the exact path or open every file manually to check. It uses an if statement to check if the user entered a word/pattern, and returns instructions if there was no term entered to search. It uses grep to perform the search and returns the filename, line number, and matching line, which allows an easy way to find where a command or specific function is used.
+
+https://github.com/oops408/cs131su26/blob/260d16c3ca29322a99aed1962cbd32d8f63272c8/ws4/.bashrc#L27
+
+backup ()
+This function is useful to create a safe backup copy of a file before any changes are made. The backup copy keeps the original file and a timestamp in the name itself, which means that if I made a backup of answer.txt, I would get a file with a timestamp like 20260705-123456, which gives me everything I need to know about when the backup was made. It uses an if statement to check if the user provided a filename, and one to check if the filename is a real file. As long as the file is valid, a backup is made, and a success message is printed.
+
+https://github.com/oops408/cs131su26/blob/260d16c3ca29322a99aed1962cbd32d8f63272c8/ws4/.bashrc#L42
+
+PS1='\u@\h:\w$ '
+
+This creates a prompt that always references your username \u, the computer or host name you are on \h, and the current working directory, with the symbol to prompt after \w. This is useful as it always displays relevant information about your identity and the machine you are using as well as your working directory, before you enter a command.
