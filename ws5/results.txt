@@ -1,3 +1,12 @@
+The model predicts that for each additional $1 in total_bill, the predicted tip increases by approximately $0.0915, while each additional person increases it by approximately $0.2107, holding the other predictor constant.
+
+Coefficients: [0.0914584363550476,0.21070300388935717]
+Total bill coefficient: 0.0914584363550476
+Party size coefficient: 0.21070300388935717
+Intercept: 0.6178364054767138
+RMSE: 0.9917585899142384
+R²: 0.47574015044898343
+
 WARNING: Using incubator modules: jdk.incubator.vector
 Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
 26/07/22 05:55:57 INFO SparkContext: Running Spark version 4.2.0
