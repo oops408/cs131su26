@@ -1,4 +1,7 @@
-The model predicts that for each additional $1 in total_bill, the predicted tip increases by approximately $0.0915, while each additional person increases it by approximately $0.2107 when holding the other predictor constant. The model suggests that larger bills and larger party sizes are associated with higher tips. It explains about 47.6% of the variation in tip amounts (R²), with predictions typically differing from actual tips by about $0.99 (RMSE)
+The model predicts that for each additional $1 in total_bill, the predicted tip increases by approximately $0.0915, 
+while each additional person increases it by approximately $0.2107 when holding the other predictor constant. 
+The model suggests that larger bills and larger party sizes are associated with higher tips. 
+It explains about 47.6% of the variation in tip amounts (R²), with predictions typically differing from actual tips by about $0.99 (RMSE).
 
 
 Full results:
